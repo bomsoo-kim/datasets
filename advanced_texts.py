@@ -1,4 +1,11 @@
 # %% [markdown]
+# This code generates random text and draws it on image, which is used to train a OCR model.
+# Many different fonts, font sizes, spacings, and tilt angles, as well as the number of words or lines, can be randomized.
+# Also, the table structure can be inserted to make the model robust in detecting text even in the presence of tables or lines. 
+# 
+# Bomsoo Kim
+
+# %% [markdown]
 # # Generate Text
 
 # %%
@@ -26,7 +33,7 @@ def generate_text(
     assert 0 <= list_words_prob <= 1, f'Brad error: failed to meet "0 <= list_words_prob <= 1"... Check list_words_prob = {list_words_prob}'
     if len(list_words) == 0 and list_words_prob != 0:
         list_words_prob = 0 # force to set to zero, if there is no word in the list
-        print(f'Brad warning: list_words_prob is set from "{list_words_prob}" to zero, because there is no word in the list: list_words = {list_words}')
+        # print(f'Brad warning: list_words_prob is set from "{list_words_prob}" to zero, because there is no word in the list: list_words = {list_words}')
     if list_words_cap_types_weights is None:
         list_words_cap_types_weights = [1] * len(list_words_cap_types)
     assert len(list_words_cap_types) == len(list_words_cap_types_weights), f'Brad error: the lengthes must match between list_words_cap_types = {list_words_cap_types} and list_words_cap_types_weights = {list_words_cap_types_weights}'
@@ -1034,8 +1041,5 @@ if __name__=='__main__':
 
                 save_output=save_output,
             )
-
-# %%
-
 
 
